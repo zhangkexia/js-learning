@@ -131,6 +131,45 @@ console.log(arr2[0])
 // 元素可以任意类型
 ```
 
+### 3. 常量  
+本质也是一个变量（这个变量需要具备不变性）  
+用const 声明  
+```js
+// 一般使用大写  
+// 常量声明的时候必须赋值
+const PI = 3.14
+console.log(PI)
+PI = 3.1415 
+// 这个赋值是不行的
+```
+
+### 4. 数据类型
+两大类
+- 基本数据类型
+  - number
+  - string
+  - boolean
+  - undefined
+  - null
+- 引用数据类型/复杂数据类型
+  - object
+- number  
+  松散语言  
+  整数 小数 负数等等不作区分  
+  弱数据类型的语言  
+  - 只有赋值了，才知道数据类型  
+
+  强数据类型的语言   
+  - int float等等严格区分  
+  ```js
+  console.log(1 + 1)
+  console.log(1 - 1)
+  console.log(1 * 1)
+  console.log(1 / 1)
+  console.log(1 % 1) // 求余
+  // 搞清楚算术运算符优先级
+  ```
+
 
 
 
