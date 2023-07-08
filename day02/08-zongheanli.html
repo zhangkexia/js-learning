@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 初始余额
+        let yu = 5000
+        // 提示出入
+        while(true) {
+            let input = +prompt(`
+                请选择操作：
+                1.存钱
+                2.取钱
+                3.查看余额
+                4.退出
+            `)
+            if (input === 4) {
+                break
+            }
+            // 根据输入操作
+            switch(input) {
+                case 1: 
+                    let cun = +prompt('input cun: ')
+                    yu = yu + cun
+                    break
+                case 2: 
+                    let qu = +prompt('input qu: ')
+                    yu = yu - qu
+                    break
+                case 3: 
+                    alert(`yu e is ${yu}`)
+                    break 
+                default: 
+                    alert('input err.')
+            }
+        }
+    </script>
+    
+</body>
+</html>
