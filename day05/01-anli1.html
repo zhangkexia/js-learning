@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, td {
+            border: solid 1px blue;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>name</th>
+            <th>age</th>
+            <th>gender</th>
+            <th>addr</th>
+        </tr>
+        <script>
+            let students = [
+                {uname: 'kexia', age: 18, gender: 'm', addr: 'hebei'},
+                {uname: 'zhang', age: 17, gender: 'f', addr: 'henan'},
+                {uname: 'yue', age: 16, gender: 'm', addr: 'shanxi'},
+                {uname: 'li', age: 15, gender: 'f', addr: 'shandong'}
+            ]
+    
+            // for (let i = 0; i < students.length; i++) {
+            //     console.log(`student ${i} info: `)
+            //     for (let key in students[i]) {
+            //         console.log(students[i][key])
+            //     }
+            // }
+            for (let i = 0; i < students.length; i++) {
+                document.write(`
+                    <tr>
+                        <td>${students[i].uname}</td>
+                        <td>${students[i].age}</td>
+                        <td>${students[i].gender}</td>
+                        <td>${students[i].addr}</td>
+                    </tr>
+                `)
+            }
+        </script>
+    </table>
+
+</body>
+</html>

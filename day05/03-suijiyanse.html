@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 生成N-M的随机数
+        function getRandom(N, M) {
+            return Math.floor(Math.random() * (M - N + 1)) + N
+        }
+        // true 十六进制随机颜色
+        // false rgb随机颜色
+        // 十六进制数字数组
+        function getRandomColor(flag) {
+            if (flag) {
+                let res = '#'
+                hexArray = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'a', 'b', 'c', 'd', 'e', 'f']
+                for (i = 0; i < 6; i++) {
+                    res += hexArray[getRandom(0, hexArray.length - 1)]
+                }
+                return res
+            } else {
+                let r = getRandom(0, 255)
+                let g = getRandom(0, 255)
+                let b = getRandom(0, 255)
+                return `rgb(${r}, ${g}, ${b})`
+            }
+        }
+
+        console.log(getRandomColor(true))
+        console.log(getRandomColor(false))
+    </script>
+</body>
+</html>
