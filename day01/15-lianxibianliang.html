@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2 {
+            text-align: center;
+        }
+        table {
+            border-collapse: collapse;
+            height: 80px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        th {
+            padding: 5px 30px;
+        }
+        table,th,td {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <h2>订单确认</h2>
+    <script>
+        // 获取数据输入
+        let price = prompt('输入单价：')
+        let num = prompt('输入数量：')
+        let addr = prompt('输入地址：')
+        // 计算总价
+        let total = Number(price) * Number(num)
+        // 更新页面（渲染页面）
+        // 最原始的方法
+        // 正常是操作DOM来更新
+        document.write(`
+        <table>
+            <tr>
+                <th>商品名称</th>
+                <th>商品价格</th>
+                <th>商品数量</th>
+                <th>总价</th>
+                <th>收获地址</th>
+            </tr>
+            <tr>
+                <td>小米青春plus</td>
+                <td>${price}元</td>
+                <td>${num}</td>
+                <td>${total}元</td>
+                <td>${addr}</td>
+            </tr>
+        </table> 
+        `)
+        
+    </script>
+</body>
+</html>

@@ -153,7 +153,7 @@ PI = 3.1415
   - null
 - 引用数据类型/复杂数据类型
   - object
-- number  
+- 4.1.1 number  
   松散语言  
   整数 小数 负数等等不作区分  
   弱数据类型的语言  
@@ -174,7 +174,7 @@ PI = 3.1415
     - 计算错误的输入  
     - 粘性的：任何对NaN的操作都返回NaN  
   
-- string  
+- 4.1.2 string  
   单引号、双引号包裹的数据都是字符串  
   单引号、双引号本质上没有区别，推荐使用单引号  
   还有反引号 
@@ -202,6 +202,74 @@ PI = 3.1415
   let age = 18
   document.write(`i am ${age} years old`)
   ```
+- 4.1.3 boolean  
+  true or false
+  ```js
+  let isCool = true
+  console.log(isCool)
+  // boolean型字面量
+  ```
+- 4.1.4 undefined  
+  声明一个变量，如果未赋值，则是undefined  
+  弱数据类型  
+  ```js
+  let num
+  console.log(num)
+  ```
+- 4.1.5 null  
+  空类型 
+  ```js
+  let obj = null
+  console.log(null)
+  // 尚未创建的对象  
+  console.log(undefined + 1) 
+  // NaN
+  cosole.log(null + 1)
+  // 1
+  ```
+- 检测数据类型  
+  ```js
+  // 作为运算符使用
+  typeof {var_name}
+  // 作为函数使用
+  typeof({var_name})
+  let num = 10
+  console.log(typeof num)
+  let str = 'kexia'
+  console.log(typeof str)
+  let flag = false
+  console.log(typeof flag)
+  let nu
+  console.log(nu)
+  let obj = null
+  console.log(obj)
+  ```
+- 类型转换  
+  ```js
+  let num1 = prompt('please input a number: ')
+  // prompt默认取的值是字符串类型 
+  console.log(typeof num1)
+  // a. 隐式转换
+  // 运算符执行，系统内部自动转换，例如 +
+  console.log(1 + 1)
+  // 隐式转换1为字符串
+  console.log('kexia' + 1)
+  // + 优先转为字符串
+  // - * / 优先转为数字
+  console.log(+'123') //转换为数字型（没有字符串的时候）
+
+  // b. 显式转换
+  // 转为数字
+  let num = Number('123')
+  // 只保留整数
+  let pix = parseInt('12.34px')
+  // 只保留浮点数
+  let pix2 = parsefloat('12.34px')
+  // 如果数字在中间，是取不到数字的
+
+  ```
+
+
 
 
 
