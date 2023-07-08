@@ -169,10 +169,39 @@ PI = 3.1415
   console.log(1 % 1) // 求余
   // 搞清楚算术运算符优先级
   ```
-
-
-
-
+  NaN
+    - not a number  
+    - 计算错误的输入  
+    - 粘性的：任何对NaN的操作都返回NaN  
+  
+- string  
+  单引号、双引号包裹的数据都是字符串  
+  单引号、双引号本质上没有区别，推荐使用单引号  
+  还有反引号 
+  ```js
+  let str = 'kexia'
+  let str = "kexia"
+  let str = `kexia`
+  ```
+  单引号里可以用双引号，要是单引号，需要转义（双引号同理）  
+  字符串拼接  
+  使用 + 
+  ```js
+  let str1 = 'kexia'
+  let str2 = 'yue'
+  let str3 = str1 + str2
+  console.log(str3)
+  let age = 18
+  // 字符串和数字拼接，是字符串，强制类型转换
+  document.write('i am' + age + 'years old')
+  ```
+  模板字符串  
+  ```js
+  // 反引号
+  // ${}引用变量  
+  let age = 18
+  document.write(`i am ${age} years old`)
+  ```
 
 
 
