@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 函数定义  
+        function chengfabiao(){
+            for (let row = 1; row <= 9; row++) {
+                for (let col = 1; col <= row; col++) {
+                    document.write(`<span>${col} * ${row} = ${col * row}</span>`)
+                }
+                document.write('<br>')
+            }
+        }
+        // 函数调用  
+        chengfabiao()
+        chengfabiao()
+    </script>
+</body>
+</html>
