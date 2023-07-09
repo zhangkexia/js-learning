@@ -72,5 +72,39 @@ form.addEventListener('click', function(e) {
 
   })
   ```
-- 页面滚动事件  
+- 元素滚动事件  
+  滚动条滚动的时候持续触发  
+  ```js
+  // 监听整个页面
+  window.addEventListener('scroll', function() {
+    n = document.documentElement.scrollTop
+    if (n >= 100) {
+        div.style.display = 'block'
+    } else {
+        div.style.display = 'none'
+    }
+  })
+  document.documentElement //获取html元素
+  // 监听某个元素
+  const div = document.querySelector('div')
+  div.addEventListener('scroll', function() {
+    console.log(div.scrollTop)
+    // 向下滚动了多少
+  })
+  ```
 - 页面尺寸事件  
+  窗口尺寸改变的时候  
+  ```js
+  window.addEventListener('resize', function() {
+
+  })
+  div.clientWidth() //元素可见宽度 不包含边框
+  div.clientHeight() //元素可见宽度 不包含边框
+
+  div.offsetWidth() //元素可见宽度 包含边框
+  div.offsetHeight() //元素可见宽度 包含边框
+
+  div.offsetTop() // 获取元素位置，距离自己带有定位的父级元素
+  div.offsetLeft() // 获取元素位置，距离自己带有定位的父级元素
+
+  ```
