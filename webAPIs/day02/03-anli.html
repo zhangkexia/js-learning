@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="choice">name here</div>
+    <button class="st">start</button>
+    <button class="ed">end</button>
+    <script>
+        const baseContent = [
+            'kexia',
+            'yue',
+            'zhang',
+            'lijiao',
+            'huang'
+        ]
+        let timeId //定义全局变量，停止定时器的时候使用
+        let random = 0 //定义全局变量，停止定时器的时候使用 
+        const st = document.querySelector('.st')
+        const ch = document.querySelector('.choice')
+        const ed = document.querySelector('.ed')
+        st.addEventListener('click', function() {
+            timeId = setInterval(() => {
+                random = parseInt(Math.random() * baseContent.length)
+                ch.innerHTML = baseContent[random]
+            }, 100)
+            // 数组只有一个元素的时候，禁用两个按钮  
+            if (baseContent.length === 1) {
+                st.disabled = true
+                ed.disabled = true
+            }
+        })
+        ed.addEventListener('click', function() {
+            clearInterval(timeId)
+            // 结束的时候，抽取元素清理掉
+            baseContent.splice(random, 1)
+        })
+    </script>
+</body>
+</html>

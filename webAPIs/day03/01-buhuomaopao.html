@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .father {
+        background-color: blue;
+        height: 200px;
+        width: 200px;
+    }
+    .son {
+        background-color: green;
+        height: 100px;
+        width: 100px;
+    }
+</style>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <script>
+        // 冒泡
+        // document.addEventListener('click', function() {
+        //     alert('grandfather')
+        // })
+        // const fa = document.querySelector('.father')
+        // const sn = document.querySelector('.son')
+        // fa.addEventListener('click', function() {
+        //     alert('fater')
+        // })
+        // sn.addEventListener('click', function() {
+        //     alert('son')
+        // })
+
+        // 捕获
+        // document.addEventListener('click', function() {
+        //     alert('grandfather')
+        // }, true)
+        // const fa = document.querySelector('.father')
+        // const sn = document.querySelector('.son')
+        // fa.addEventListener('click', function() {
+        //     alert('fater')
+        // }, true)
+        // sn.addEventListener('click', function() {
+        //     alert('son')
+        // }, true)
+
+        // 阻止冒泡
+        document.addEventListener('click', function() {
+            alert('grandfather')
+        })
+        const fa = document.querySelector('.father')
+        const sn = document.querySelector('.son')
+        fa.addEventListener('click', function(e) {
+            alert('fater')
+            e.stopPropagation()
+        })
+        sn.addEventListener('click', function(e) {
+            alert('son')
+            e.stopPropagation()
+        })
+    </script>
+</body>
+</html>

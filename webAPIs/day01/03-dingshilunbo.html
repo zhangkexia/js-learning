@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        kexia
+    </div>
+    <script>
+        const base = [
+            {uname: 'kexia', id: 1},
+            {uname: 'kexia-2', id: 2},
+            {uname: 'kexia-3', id: 3}
+        ]
+        const divv = document.querySelector('div')
+        let i = 0
+        setInterval(
+            function() {
+                i++
+                if (i === base.length) {
+                    i = 0
+                }
+                divv.innerHTML = base[i]['uname']
+            },
+            2000
+        )
+    </script>
+</body>
+</html>
