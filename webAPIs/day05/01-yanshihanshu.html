@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div5 {
+            width: 300px;
+            height: 200px;
+            background-color: pink;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div5">广告</div>
+    <script>
+        const div5 = document.querySelector('.div5')
+        setTimeout(function() {
+            div5.style.display = 'none'
+        }, 5000)
+    </script>
+</body>
+</html>
