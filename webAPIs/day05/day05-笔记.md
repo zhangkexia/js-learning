@@ -76,6 +76,29 @@ localStorage.removeItem(key)
 用法与localStorage相同  
 
 #### 2.4 存储复杂数据类型  
+复杂类型转成字符串，然后存入本地存储  
+```js
+// 转json字符串
+JSON.stringfy(复杂数据类型)
+// json字符串转对象
+JSON.parse(字符串)
+```
+
+#### 2.5 map() join()方法
+- map()
+  遍历数组处理数据，并返回新的数组  
+  映射，两个元素的集合之间元素相互对应  
+  forEach没有返回值  
+  ```js
+  // ele 是每一个元素
+  // index 是每一个元素的索引 
+  arr.map(function(ele, index) {
+
+  })
+  ```
+- join()  
+  把数组转换为字符串  
+  arr.join() // 默认逗号分割
 
 
 
