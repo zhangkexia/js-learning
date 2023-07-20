@@ -1,0 +1,152 @@
+### 1. 编程思想  
+- 面向对象  
+  每一个对象都是功能中心，具有明确分工  
+  - 封装性  
+  - 继承性  
+  - 多态性  
+- 面向过程  
+### 2. 构造函数  
+```js
+// 构造函数，封装公共的属性和方法
+function Star(uname, age) {
+    this.uname = uname
+    this.age = age
+    this.singSong = function() {
+        console.log('sing a song')
+    }
+}
+const ldh = new Star('kexia', 18)
+const zxy = new Star('yue', 30)
+
+// 存在内存浪费, 不同实例，方法会创建多次
+ldh.sing
+zxy.sing 
+ldh.sing === zxy.sing // false
+```
+### 3. 原型  
+解决上面的浪费内存的问题  
+- 原型  
+  利用原型对象实现方法共享  
+  每个构造函数都有个prototype属性，指向另一个对象，这就是原型（他是一个对象），也叫做原型对象  
+  公共的方法写到原型对象上，实现共享  
+  ```js
+  function Star(uname, age) {
+    this.uname = uname
+    this.age = age
+  }
+  Star.prototype.sing = function() {
+        console.log('sing a song')
+  }
+
+  const ldh = new Star('kexia', 18)
+  const zxy = new Star('yue', 30)
+  ldh.sing === zxy.sing // true
+  // 构造函数和原型里的this都是指向实例对象   
+  ```
+- constructor属性
+  每个原型都有这个属性  
+  ```js
+  Star.prototype.constructor
+  // 这个属性执行原型对象的构造函数
+  Star.prototype = {
+    constructor: Star, // 这里很关键
+    sing: function() {
+        console.log('sing a song')
+    },
+    dance: function() {
+        console.log('sing a song')
+    }
+  }
+  // prototype 直接用对象赋值，constructor属性就没了，可以一个一个追加
+  // 需要重新指回构造函数
+  ```
+- 对象原型  
+  每一个实例对象都有个属性__proto__指向构造函数里的原型  
+  这样实例对象就可以访问封装的公共方法
+  ```js
+  ldh.__proto__ === Star.prototype // true
+  ldh.__proto__.constructor === Star // true
+  // 构造函数  原型对象  对象原型 三者之间  
+  ```
+- 原型继承  
+  ```js
+  // 1. 初始
+  function Woman() {
+    this.ears = 2
+    this.head = 1
+  }
+  const red = new Woman()
+
+  function Man() {
+    this.ears = 2
+    this.head = 1
+  }
+  const blue = new Man()
+  
+  // 2. 进一步抽象封装
+  const Person = {
+    ears: 2
+    head: 1
+  }
+
+  // 继承 ，公共的部分放到原型上
+  function Woman() {
+
+  }
+  Woman.prototype = Person // 覆盖原有的prototype, 要重新对constructor属性赋值回去
+  Woman.prototype.constructor = Woman
+  const red = new Woman()
+
+  function Man() {
+
+  }
+  Man.prototype = Person
+  Man.prototype.constructor = Man
+  const blue = new Man()
+
+  // 3. 除了继承，还要有自己的方法
+  Woman.prototype.givebaby = function() {
+    console.log('baby')
+  }
+  // Woman的prototype和Man的prototype都是Person
+  // Woman有了givebaby, Man也会有
+
+  // 为了解决上述问题  
+  function Person() {
+    this.eyes = 2
+    this.head = 1
+  }
+  function Woman() {
+
+  }
+  function Man() {
+    
+  }
+  // 都生成新的对象，独立的对象  
+  Woman.prototype = new Person()
+  Woman.prototype.constructor = Woman
+  Woman.prototype.givebaby = function() {
+    console.log('baby')
+  }
+  Man.prototype = new Person()
+  Woman.prototype.constructor = Man
+  ```
+- 原型链  
+  ```js
+  function Person() {
+
+  }
+  const ldh = new Person()
+  ldh.__proto__ === Person.prototype
+  ldh.__proto__.constructor === Person
+  Person.prototype.constructor === Person
+
+  Person.prototype.__proto__ === Object.prototype
+  Person.prototype.__proto__.constructor === Object
+  Object.prototype.constructor === Object
+
+  Object.prototype.__proto__ === null
+
+  // 一直往上找，找到Object
+  ```
+  
